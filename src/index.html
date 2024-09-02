@@ -3,43 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./output.css" />
-    <title>Weather Forecast</title>
-  </head>
-  <body>
-    <div class="container bg-[#00000A] text-white font-sans m-32 rounded-lg p-6">
-      <h1 class="text-3xl justify-center flex items-center font-bold">Weather Forecast</h1>
-      <div class="flex mt-4">
-        <div class="flex flex-col w-3/5">
-          <input
-            class="bg-slate-800 h-8 rounded-lg border border-black p-2"
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Search City"
-          />
-          <button
-            type="submit"
-            class="bg-blue-600 text-white rounded-lg mt-2 py-2"
-          >
-            Search
-          </button>
-          <button
-            id="current"
-            class="bg-blue-600 text-white rounded-lg mt-2 py-2"
-          >
-            Current Location
-          </button>
-        </div>
-        <div class="flex flex-col w-2/5 ml-6">
-          <span id="City" class="text-lg font-semibold">London</span>
-          <img src="//cdn.weatherapi.com/weather/64x64/day/116.png" class="w-12" alt="">
-          <span class="wdata mt-2">Temperature: 7.06°C</span>
-          <span class="wdata">Wind: 2.85 km/h</span>
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-          <span class="wdata">Humidity: 88%</span>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="max-w-screen-lg mx-auto p-6">
+      <!-- Search Bar -->
+      <div class="mb-6 flex justify-around">
+        <input id="searchbox"
+          type="text"
+          placeholder="Search for cities"
+          class="w-8/12 p-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"/>
+        <button id="submitbtn1" class="w-2/12 bg-blue-500 p-3  rounded-lg" type="submit">Search</button>
+        <button id="currentlocbtn" class="w-1/12 justify-center items-center flex bg-blue-500 p-2  rounded-lg"><img src="https://www.svgrepo.com/show/352232/location-arrow.svg" class="w-8 " alt=""></button>
+      </div>
+
+      <!-- Weather Info -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 font-sans font-bold">
+        <!-- Main Weather Info -->
+        <div class="p-6 bg-gray-800 rounded-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h2 id="todaycity" class="text-3xl font-bold">Madrid</h2>
+            <div id="todaytemp" class="text-6xl">31°</div>
+          </div>
+          <p id="todaycor" class="text-gray-400">Chance of rain: 0%</p>
+          <div class="flex items-center justify-center mt-6">
+            <img id="todayimg" src="//cdn.weatherapi.com/weather/128x128/day/116.png" class="w-32 h-32"></img>
+          </div>
+        </div>
+
+        <!-- Today's Forecast -->
+        <div class="p-6 bg-gray-800 rounded-lg">
+          <h3 class="text-lg font-semibold mb-4">Today's Forecast</h3>
+          <div class="grid grid-cols-6 gap-4">
+            <div class="text-center">
+              <p class="text-sm text-gray-400">6:00</p>
+              <p>25°</p>
+              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-sm text-gray-400">9:00</p>
+              <p>28°</p>
+              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-sm text-gray-400">12:00</p>
+              <p>33°</p>
+              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-sm text-gray-400">3:00</p>
+              <p>34°</p>
+              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-sm text-gray-400">6:00</p>
+              <p>32°</p>
+              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+            </div>
+            <div class="text-center">
+              <p class="text-sm text-gray-400">9:00</p>
+              <p>30°</p>
+              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Air Conditions -->
+        <div class="p-6 bg-gray-800 rounded-lg">
+          <h3 class="text-lg font-semibold mb-4">Air Conditions</h3>
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-gray-400">Real Feel</p>
+              <p class="text-2xl font-bold">30°</p>
+            </div>
+            <div>
+              <p class="text-gray-400">Wind</p>
+              <p class="text-2xl font-bold">0.2 km/h</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-gray-400">Chance of rain</p>
+              <p class="text-2xl font-bold">0%</p>
+            </div>
+            <div>
+              <p class="text-gray-400">UV Index</p>
+              <p class="text-2xl font-bold">3</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7-Day Forecast -->
+        <div class="p-6 bg-gray-800 rounded-lg">
+          <h3 class="text-lg font-semibold mb-4">7-Day Forecast</h3>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Today</p>
+              <p>Sunny</p>
+              <p class="font-bold">36/22</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Tue</p>
+              <p>Sunny</p>
+              <p class="font-bold">37/21</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Wed</p>
+              <p>Sunny</p>
+              <p class="font-bold">37/21</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Thu</p>
+              <p>Cloudy</p>
+              <p class="font-bold">37/21</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Fri</p>
+              <p>Cloudy</p>
+              <p class="font-bold">37/21</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Sat</p>
+              <p>Rainy</p>
+              <p class="font-bold">37/21</p>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <p>Sun</p>
+              <p>Sunny</p>
+              <p class="font-bold">37/21</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
