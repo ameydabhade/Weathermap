@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: Add custom styles if needed */
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body class="bg-gray-900 text-white font-sans min-h-screen">
     <div class="max-w-screen-lg mx-auto p-6">
       <!-- Header -->
       <header class="text-center mb-10">
         <h1 class="text-4xl font-bold text-blue-500">Weather Dashboard</h1>
-        <p class="text-gray-400 mt-2">Get real-time weather updates and 5-day forecasts</p>
+        <p class="text-gray-400 mt-2">Get real-time weather updates and forecasts</p>
       </header>
 
       <!-- Search Bar -->
@@ -92,8 +98,8 @@
 
         <!-- Extended Forecast -->
         <div class="p-6 bg-gray-800 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-4">4-Day Forecast</h3>
-          <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-wrap">
+          <h3 class="text-xl font-semibold mb-4">2-Day Forecast</h3>
+          <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Forecast items will be injected here -->
           </div>
         </div>

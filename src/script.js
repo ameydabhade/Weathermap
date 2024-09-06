@@ -113,7 +113,7 @@ function updateForecast(forecastDays) {
   forecast.innerHTML = ""; // Clear previous forecast
 
 
-  let daysToShow = forecastDays.slice(1, 5); // Slice array to get 4 days, starting from index 1 (skipping today)
+  let daysToShow = forecastDays.slice(1, 3);
 
   daysToShow.forEach((day) => {
     let date = new Date(day.date); // Parse the date string
@@ -147,9 +147,11 @@ function updateForecast(forecastDays) {
 
 // Search button event listener
 submitbtn.addEventListener("click", () => {
-  let city = searchbox.value;
+  let city = searchbox.value.trim();
   if (city) {
     fetchWeatherData(city);
+  } else {
+    alert("Please enter a city name.");
   }
 });
 
@@ -160,6 +162,9 @@ currentlocbtn.addEventListener("click", () => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       fetchWeatherData(`${lat},${lon}`);
+    }, (error) => {
+      alert("Error retrieving your location.");
+      console.error("Geolocation error:", error);
     });
   } else {
     alert("Geolocation is not supported by your browser.");
@@ -177,4 +182,14 @@ document.addEventListener("click", (event) => {
   if (!dropdown.contains(event.target) && event.target !== searchbox) {
     dropdown.classList.add("hidden");
   }
+});
+
+// Set default city on page load
+function setDefaultCity() {
+  fetchWeatherData("Mumbai");
+}
+
+// Run the function when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  setDefaultCity();
 });
