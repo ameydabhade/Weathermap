@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
   </head>
   <body class="bg-gray-900 text-white">
     <div class="max-w-screen-lg mx-auto p-6">
@@ -16,7 +15,9 @@
           placeholder="Search for cities"
           class="w-8/12 p-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"/>
         <button id="submitbtn1" class="w-2/12 bg-blue-500 p-3  rounded-lg" type="submit">Search</button>
-        <button id="currentlocbtn" class="w-1/12 justify-center items-center flex bg-blue-500 p-2  rounded-lg"><img src="https://www.svgrepo.com/show/352232/location-arrow.svg" class="w-8 " alt=""></button>
+        <button id="currentlocbtn" class="w-1/12 justify-center items-center flex bg-blue-500 p-2  rounded-lg">
+          <img src="https://www.svgrepo.com/show/352232/location-arrow.svg" class="w-8" alt="">
+        </button>
       </div>
 
       <!-- Weather Info -->
@@ -24,48 +25,48 @@
         <!-- Main Weather Info -->
         <div class="p-6 bg-gray-800 rounded-lg">
           <div class="flex items-center justify-between mb-4">
-            <h2 id="todaycity" class="text-3xl font-bold">Madrid</h2>
-            <div id="todaytemp" class="text-6xl">31°</div>
+            <h2 id="todaycity" class="text-3xl font-bold">City</h2>
+            <div id="todaytemp" class="text-6xl">--°C</div>
           </div>
-          <p id="todaycor" class="text-gray-400">Chance of rain: 0%</p>
+          <div id="todaycor" class="mb-4">Condition: --</div>
           <div class="flex items-center justify-center mt-6">
-            <img id="todayimg" src="//cdn.weatherapi.com/weather/128x128/day/116.png" class="w-32 h-32"></img>
+            <img id="todayimg" src="" class="w-32 h-32"></img>
           </div>
         </div>
 
         <!-- Today's Forecast -->
         <div class="p-6 bg-gray-800 rounded-lg">
           <h3 class="text-lg font-semibold mb-4">Today's Forecast</h3>
-          <div class="grid grid-cols-6 gap-4">
-            <div class="text-center">
+          <div class="grid grid-cols-6 gap-2">
+            <div class="text-center bg-gray-900 p-2 rounded-lg">
               <p class="text-sm text-gray-400">6:00</p>
               <p>25°</p>
-              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
-            <div class="text-center">
+            <div class="text-center  bg-gray-900 p-2 rounded-lg ">
               <p class="text-sm text-gray-400">9:00</p>
               <p>28°</p>
-              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
-            <div class="text-center">
+            <div class="text-center  bg-gray-900 p-2 rounded-lg">
               <p class="text-sm text-gray-400">12:00</p>
               <p>33°</p>
-              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
-            <div class="text-center">
+            <div class="text-center  bg-gray-900 p-2 rounded-lg">
               <p class="text-sm text-gray-400">3:00</p>
               <p>34°</p>
-              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
-            <div class="text-center">
+            <div class="text-center  bg-gray-900 p-2 rounded-lg">
               <p class="text-sm text-gray-400">6:00</p>
               <p>32°</p>
-              <div class="w-8 h-8 bg-yellow-400 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
-            <div class="text-center">
+            <div class="text-center  bg-gray-900 p-2 rounded-lg">
               <p class="text-sm text-gray-400">9:00</p>
               <p>30°</p>
-              <div class="w-8 h-8 bg-gray-500 rounded-full mx-auto"></div>
+              <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" alt="">
             </div>
           </div>
         </div>
@@ -138,6 +139,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

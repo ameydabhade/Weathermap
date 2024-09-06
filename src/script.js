@@ -19,17 +19,17 @@ currentlocbtn.addEventListener('click', function() {
         .then(response => response.json())
         .then(data => {
           // Update the DOM with the fetched data
-          todaycity.innerHTML = data.location.name; // Update with city name
-          todaytemp.innerHTML = `${data.current.temp_c}°C`; // Update with temperature
-          todaycor.innerHTML = `Condition: ${data.current.condition.text}`; // Update with condition
-          todayimg.src = `${data.current.condition.icon}`; // Update with weather icon
+          todaycity.textContent = data.location.name; // Update with city name
+          todaytemp.textContent = `${data.current.temp_c}°C`; // Update with temperature
+          todaycor.textContent = `Condition: ${data.current.condition.text}`; // Update with condition
+          todayimg.src = data.current.condition.icon; // Update with weather icon
         })
         .catch(error => {
           console.error('Error fetching weather data:', error);
           // Handle errors here (e.g., display an error message)
-          todaycity.innerHTML = 'Error fetching weather data';
-          todaytemp.innerHTML = '';
-          todaycor.innerHTML = '';
+          todaycity.textContent = 'Error fetching weather data';
+          todaytemp.textContent = '';
+          todaycor.textContent = '';
           todayimg.src = '';
         });
     },
@@ -45,17 +45,17 @@ submitbtn.addEventListener('click', function() {
     .then(response => response.json())
     .then(data => {
       // Update the DOM with the fetched data
-      todaycity.innerHTML = data.location.name; // Update with city name
-      todaytemp.innerHTML = `${data.current.temp_c}°C`; // Update with temperature
-      todaycor.innerHTML = `Condition: ${data.current.condition.text}`; // Update with condition
-      todayimg.src = `${data.current.condition.icon}`; // Update with weather icon
+      todaycity.textContent = data.location.name; // Update with city name
+      todaytemp.textContent = `${data.current.temp_c}°C`; // Update with temperature
+      todaycor.textContent = `Condition: ${data.current.condition.text}`; // Update with condition
+      todayimg.src = data.current.condition.icon; // Update with weather icon
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
       // Handle errors here (e.g., display an error message)
-      todaycity.innerHTML = 'Error fetching weather data';
-      todaytemp.innerHTML = '';
-      todaycor.innerHTML = '';
+      todaycity.textContent = 'Error fetching weather data';
+      todaytemp.textContent = '';
+      todaycor.textContent = '';
       todayimg.src = '';
     });
 });
